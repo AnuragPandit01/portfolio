@@ -168,8 +168,8 @@
         background: rgba(0,0,0, 0.8);
     }
     .project-card {
-      width: 300px; /* Larger absolute size */
-      height: 200px; /* Larger absolute size */
+      width: 350px; /* Larger absolute size */
+      height: 250px; /* Larger absolute size */
       position: relative;
       overflow: hidden;
       border-radius: 0.5rem;
@@ -199,7 +199,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.772);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -231,6 +231,10 @@
       color: white;
       text-align: center;
       max-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
     }
     </style>
   </head>
@@ -342,7 +346,7 @@
             </div>
             </div>
             <!-- Skills Section -->
-            <section data-scroll data-scroll-speed="1" id="skills" class="w-[100vw] h-[100vh] relative flex justify-center items-center bg-transparent ">
+            <section data-scroll data-scroll-speed="1" id="skills" class="w-[100vw] h-[100vh] relative flex flex-col justify-center items-center bg-transparent ">
                 <div data-scroll data-scroll-speed="2" data-scroll-direction="vertical" data-scroll-position="right" id="skill-text" class="w-full h-full  -z-20 absolute text-[10em] tracking-wide text-transparent italic font-stretch-50% font-mono font-bold">
                     <div class="absolute bottom-[20]">#Skills</div>
                 </div>
@@ -380,26 +384,84 @@
                     </div>
                   </div>
             </section>
+            <h1 class="text-2xl font-bold block text-center">Projects</h1> 
             <!-- Projects Section -->
              <section data-scroll id="Projects" class="w-[100vw] h-[100vh] relative flex justify-center items-center rounded">
-                 <!-- Single Card Container -->
-  <div class="project-card">
-    <!-- Background Image -->
-    <img src="images/project1TODo.png" alt="Project Background">
-    
-    <!-- Project Title (Always Visible) -->
-    <div class="project-title">To-Do app</div>
-    
-    <!-- Overlay Content (Visible on Hover) -->
-    <div class="overlay">
-      <p class="description">
-       It is a simple To-DO app, allows users to add, delete, and mark tasks as completed. It features a clean and responsive design, making task management intuitive and efficient.
-      </p>
-      <a href="https://github.com/username/project-repo" target="_blank" class="github-link">
-        GitHub Repo
-      </a>
-    </div>
-  </div>
+                
+              <div class="w-full h-full flex flex-wrap justify-center items-center gap-2">
+                <!--Project Cards Container -->
+                <div class="project-card">
+                  <!-- Background Image -->
+                  <img src="images/project1TODo.png" alt="Project Background">
+
+                  <!-- Project Title (Always Visible) -->
+                  <div class="project-title">To-Do app</div>
+
+                  <!-- Overlay Content (Visible on Hover) -->
+                  <div class="overlay">
+                    <p class="description">
+                     It is a simple To-DO app, allows users to add, delete, and mark tasks as completed. It features a clean and responsive design, making task management intuitive and efficient.
+                    </p>
+                    <a href="https://github.com/AnuragPandit01/To-do-List" target="_blank" class="github-link">
+                      view code
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-card">
+                  <!-- Background Image -->
+                  <img src="images/imageSearch.png" alt="Project Background">
+                  
+                  <!-- Project Title (Always Visible) -->
+                  <div class="project-title">Image Search</div>
+                  
+                  <!-- Overlay Content (Visible on Hover) -->
+                  <div class="overlay">
+                    <p class="description">
+                      This is a simple image search application that allows users to search for images using keywords. It fetches images from an API and displays them in a grid format, providing a user-friendly interface for browsing images.
+                    </p>
+                    <a href="https://github.com/AnuragPandit01/image-search" target="_blank" class="github-link">
+                      View Code
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-card">
+                  <!-- Background Image -->
+                  <img src="images/passgenr.png" alt="Project Background">
+                  
+                  <!-- Project Title (Always Visible) -->
+                  <div class="project-title">Password Genrator</div>
+                  
+                  <!-- Overlay Content (Visible on Hover) -->
+                  <div class="overlay">
+                    <p class="description">
+                      This is a simple password generator application that allows users to generate strong and secure passwords. It provides options for customizing password length and character types.
+                    </p>
+                    <a href="https://github.com/AnuragPandit01/passwordGenerator" target="_blank" class="github-link">
+                      View Code
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-card">
+                  <!-- Background Image -->
+                  <img src="images/portfolioimg.png" alt="Project Background">
+                  
+                  <!-- Project Title (Always Visible) -->
+                  <div class="project-title">Portfolio</div>
+                  
+                  <!-- Overlay Content (Visible on Hover) -->
+                  <div class="overlay">
+                    <p class="description">
+                      This is my personal portfolio website, showcasing my skills, projects, and contact information. It features a clean and modern design, providing an overview of my work and allowing potential clients or employers to get in touch with me easily.
+                    </p>
+                    <a href="https://github.com/AnuragPandit01/portfolio" target="_blank" class="github-link">
+                      View Code
+                    </a>
+                  </div>
+                </div>
+              </div>
                 
              </section>
 
