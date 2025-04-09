@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Anurag's Portfolio" />
+    <meta name="author" content="Anurag" />
+    <meta name="keywords" content="portfolio, web developer, anurag" />
+    <meta name="theme-color" content="#123458" />
+    <script src="https://kit.fontawesome.com/b1948ec083.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="output.css" />
+    <title>Anurag Pandey - Portfolio</title>
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        .swiper {
+      position: absolute;
+      width: 90%;
+      height: 40%;
+      margin-bottom: 1em;
+    }
+
+    .swiper-slide {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content:center;
+      border-radius: 18px;
+      color: #fff;
+      background-color: #fff;
+    }
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        .hero {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    flex-direction: row;
+    background:transparent;
+}
+
+.left, .right {
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    /* border: 1px solid white; */
+}
+
+.img-container {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.8) 0px 2px 8px 0px;
+}
+
+/* Responsive for tablets */
+@media screen and (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .left, .right {
+        width: 100%;
+        height: 50%;
+    }
+}
+
+/* Responsive for mobile devices */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    .left, .right {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .img-container {
+        width: 100%;
+        height: auto;
+    }
+}
+    .square1 {
+        position: absolute;
+        top: 5%;
+        left: 3%;
+        width: 100px;
+        height: 100px;
+        background-color: #69a7f8;
+        z-index: -1;
+        border-radius: 10px;
+    }
+    .square2{
+        position: absolute;
+        bottom: 5%;
+        left: 40%;
+        width: 100px;
+        height: 100px;
+        background-color: #69a7f8;
+        z-index: -1;
+        border-radius: 10px;
+    }
+    .intro-box{
+        height: 60%;
+        width: 100%;
+    }
+    .greet{
+      -webkit-text-stroke: 4px #d8e2c2;
+    }
+    .greet2{
+      -webkit-text-stroke: 2px #ffffff;
+      font-family: "Hind", sans-serif;
+      font-weight: 700;
+      font-style:oblique;
+     
+    }
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    .after\:animate-blink::after {
+        animation: blink 0.7s infinite;
+    }
+    .about-text,.education,#skill-text{
+        -webkit-text-stroke: 4px #818181;
+    }
+    #contact{
+        background: url('/images/contactBG.webp') no-repeat center center/cover;
+    }
+    .contact-container{
+        background: rgba(0,0,0, 0.8);
+    }
+    .project-card {
+      width: 300px; /* Larger absolute size */
+      height: 200px; /* Larger absolute size */
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .project-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.75rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+      color: white;
+      font-weight: bold;
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-card:hover .overlay {
+      opacity: 1;
+    }
+    
+    .github-link {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #2563eb;
+      color: white;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+    
+    .github-link:hover {
+      background-color: #1d4ed8;
+    }
+    
+    .description {
+      color: white;
+      text-align: center;
+      max-width: 100%;
+    }
+    </style>
+  </head>
+<body class="bg-[#e2e2e2] pt-4 text-[#3b3b3b] dark:bg-[#1a1b1b]  dark:text-white font-sans antialiased relative" style="font-family: 'Poppins', sans-serif;"></body>
+    
+    <div class="wrapper">
+        <!-- navbar -->
+     <header
+     class="w-full h-11  bg-[#1a1b1b] text-gray-200 flex items-center justify-between p-2 border-b-2 border-gray-700"
+ >
+     <div
+         class="logoText w-[8rem] p-2 h-[3rem] flex justify-center tracking-widest text-white  font-semibold text-[1.5rem] hover:bg-white hover:text-[#45425A] rounded transition duration-300 ease-in-out"style="font-family: 'Lobster', cursive;"
+     >
+         ANURAG
+     </div>
+     <!-- navbar section -->
+     <nav class="nav-menu hidden md:flex gap-4 text-[1.2rem] font-normal">
+         <a href="#home" class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left ">Home</a>
+         <a href="#about" class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
+         <a href="#skills" class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
+         <a href="#projects" class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
+         <a href="#contact" class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
+     </nav>
+     <!-- hamburger menu -->
+     <div class="showBtn md:hidden flex items-center justify-center w-10 h-10  rounded-full cursor-pointer" id="hamburger-menu">
+         <i class="fa-solid fa-bars text-white"></i>
+     </div>
+
+     <!-- close button -->
+     <div class="closeBtn hidden md:hidden flex items-center justify-center w-10 h-10  rounded-full cursor-pointer" id="close-menu">
+         <i class="fa-solid fa-xmark text-white"></i>
+     <!-- mobile menu -->
+     <div class="mobile-menu hidden absolute top-16 left-0 w-full bg-[#123458] text-gray-200 flex flex-col items-center justify-center gap-4 p-4 rounded-b-lg md:hidden z-50" id="mobile-menu">
+         <a href="#home" class="hover:text-[#91A762] text-lg">Home</a>
+         <a href="#about" class="hover:text-[#91A762] text-lg">About</a>
+         <a href="#skills" class="hover:text-[#91A762] text-lg">Skills</a>
+         <a href="#projects" class="hover:text-[#91A762] text-lg">Projects</a>
+         <a href="#contact" class="hover:text-[#91A762] text-lg">Contact</a>
+     </div>
+     </header>
+        <section data-scroll id="home" >
+            
+        <!-- hero section -->
+        <div class="hero">
+            <div class="greet text-[6em] font-bold text-[#4a5e77] absolute top-0 left-[43%]">Hello</div>
+        <!-- left section -->
+        <div class="left">
+            <div class="square1"></div>
+            <div class="square2"></div>
+           <div class="img-container">
+               <img style="height: 100%; border-radius: 10px;" src="/images/My Image.jpg" alt="">
+           </div>
+        </div>
+        <!-- right section -->
+         <div class="right flex-col relative">
+            
+            <div class="greet2 text-[7em] font-bold absolute top-12 left-15 text-transparent ">नमस्ते</div>
+            <div class="intro-box relative  mt-11 rounded-lg shadow-sm shadow-gray-400">
+                
+                <div class="intro flex flex-col items-center justify-center h-full w-full bg-[#1a1b1b] text-white p-4 rounded-xl">
+                    <div class="w-full h-[4em] flex">
+                        <div class="w-[25%] h-full  text-[3em] text-center">I am</div>
+                        <div id="typed" class="text-[3em] text-[#69a7f8] font-bold leading-[1.2] relative p-2 after:content-['|'] after:absolute after:-right-4 after:top-1/2 after:-translate-y-1/2 after:text-[1em] after:animate-blink"></div>
+                    </div>
+                    <a href="path/to/your-resume.pdf" download="Anurag_Resume.pdf">
+                        <button class="flex mt-4 items-center cursor-pointer rounded-md bg-gradient-to-tr from-[#48607f] to-[#529af8] py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                          <i class="fa-solid fa-file-arrow-down text-[20px]"></i>
+                          <span class="px-2">Resume</span>
+                        </button>
+                      </a>
+                </div>
+            </div>
+         </div>
+        </div>  
+        </section>
+        <!-- about section -->
+        <div id="about" class="w-[100vw] h-[110vh] relative flex justify-center items-center bg-transparent py-4 -z-10">
+            <div data-scroll data-scroll-speed="3" data-scroll-direction="vertical" class="about-text text-[10em]  tracking-wide absolute bottom-[12%] left-[2%] text-transparent italic font-stretch-50% font-mono font-bold">About</div>
+            <div data-scroll data-scroll-speed="3" data-scroll-direction="vertical" data-scroll-offset="10,10%" class="education text-[7em] tracking-wide absolute top-[15%] right-2 text-transparent italic font-stretch-50% font-mono font-bold">Education</div>
+            <div data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" class="about-me w-[50%] h-[75%] p-8 text-[1.4em] mt-4 tracking-widest font-mono opacity-80 text-justify">
+                Hi, I’m Anurag—a passionate web developer who loves crafting seamless, intuitive, and visually striking digital experiences. With expertise in React, Java, and SQL, I specialize in turning complex ideas into elegant, high-performing solutions. Currently pursuing my MCA, I’m on a relentless journey of learning, innovation, and pushing the boundaries of web development. If you’re looking for creativity, efficiency, and a problem-solving mindset—let’s connect and build something amazing!           
+            </div>
+            <div data-scroll data-scroll-speed="3" data-scroll-direction="horizontal" class="education-card w-[50%] mt-4 h-[75%] flex items-center justify-center">
+                <div class="w-[95%] h-[80%] shadow-sm shadow-gray-500  rounded-4xl flex flex-col gap-4 items-center justify-center">
+                    <div class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
+                        <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">MCA</div>
+                        <div class="text-[1em] font-bold text-gray-700 flex flex-col justify-center items-center w-[15em]">Maharishi Markandeshwar <div> (Deemed to be University)</div></div>
+                        <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2024 - Present</div>
+                    </div>
+
+                    <div class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
+                        <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">BA</div>
+                        <div class="text-[1em] font-bold text-gray-700 w-[15em] flex flex-col justify-center items-center">Pro. Rajendra Prasad <div>(Rajju Bhaiya University)</div></div>
+                        <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2020 - 2024</div>
+                    </div>
+
+                    <div class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
+                        <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">12<sup>th</sup></div>
+                        <div class="text-[1em] font-bold text-gray-700 w-[15em] px-4 border-black flex flex-col justify-center items-center">Bal Bharti Inter College <div>(UP Board)</div></div>
+                        <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2020</div>
+                    </div>
+
+                    <div class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
+                        <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">10<sup>th</sup></div>
+                        <div class="text-[1em] font-bold text-gray-700 w-[15em] px-4 flex flex-col justify-center items-center">Bal Bharti Inter College <div>(UP Board)</div> </div>
+                        <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2018</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- Skills Section -->
+            <section data-scroll data-scroll-speed="1" id="skills" class="w-[100vw] h-[100vh] relative flex justify-center items-center bg-transparent ">
+                <div data-scroll data-scroll-speed="2" data-scroll-direction="vertical" data-scroll-position="right" id="skill-text" class="w-full h-full  -z-20 absolute text-[10em] tracking-wide text-transparent italic font-stretch-50% font-mono font-bold">
+                    <div class="absolute bottom-[20]">#Skills</div>
+                </div>
+                
+                <div class="swiper mySwiper" >
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/html--icon.png" alt="html icon" class="w-[10em] h-[10em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center ">
+                        <img src="/images/css-icon.png" alt="html icon" class="w-[10em] h-[10em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/js-icon.png" alt="html icon" class="w-[10em] h-[10em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/Tailwind CSS.png" alt="html icon" class="w-[10em] h-[10em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/react-icon.png" alt="html icon" class="w-[10em] h-[10em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/java icon.png" alt="html icon" class="w-[11em] h-[12em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/C++ icon.png" alt="html icon" class="w-[11em] h-[12em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/ms-excel icon.png" alt="html icon" class="w-[11em] h-[12em]">
+                      </div>
+                      <div class="swiper-slide flex justify-center items-center">
+                        <img src="/images/Tally-icon.png" alt="html icon" class="w-[11em] h-[12em]">
+                      </div>
+                      
+                    </div>
+                  </div>
+            </section>
+            <!-- Projects Section -->
+             <section data-scroll id="Projects" class="w-[100vw] h-[100vh] relative flex justify-center items-center rounded">
+                 <!-- Single Card Container -->
+  <div class="project-card">
+    <!-- Background Image -->
+    <img src="images/project1TODo.png" alt="Project Background">
+    
+    <!-- Project Title (Always Visible) -->
+    <div class="project-title">To-Do app</div>
+    
+    <!-- Overlay Content (Visible on Hover) -->
+    <div class="overlay">
+      <p class="description">
+       It is a simple To-DO app, allows users to add, delete, and mark tasks as completed. It features a clean and responsive design, making task management intuitive and efficient.
+      </p>
+      <a href="https://github.com/username/project-repo" target="_blank" class="github-link">
+        GitHub Repo
+      </a>
+    </div>
+  </div>
+                
+             </section>
+
+             <!-- contact section -->
+              <section id="contact" class="w-full h-[100vh] relative flex justify-center items-center">
+                <div class="contact-container w-full h-full relative flex justify-center items-center flex-col gap-2">
+                    <h2 class="text-[4em] tracking-wide font-semibold opacity-50 font-stretch-50% text-center text-white">Contact Me</h2>
+                    <div class="w-full h-[80%] flex justify-center items-center gap-8">
+                        <div class="contact-form w-[30%] h-[90%] border-2 rounded-2xl flex flex-col justify-center items-center p-4 text-white">
+                            <form action="https://formspree.io/f/mldjozla" method="post" class="w-full h-full flex flex-col gap-4 items-center justify-center">
+                                <input type="text" name="user" placeholder="Name" class="w-[80%] h-[3em] border-b-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#91A762]">
+                                <input type="email" name="userMail" placeholder="Email" class="w-[80%] h-[3em] border-b-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#91A762]">
+                                <input type="tel" name="userContact" placeholder="Contact no" class="w-[80%] h-[3em] border-b-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#91A762]">
+                                <textarea name="userMessage" id="" cols="30" rows="10" placeholder="Message" class="w-[80%] h-[10em] border-b-2 border-gray-300 rounded-md p-2 focus:outline-none focus:border-[#91A762]"></textarea>
+                                <button type="submit" class="bg-[#6274a7] text-white py-2 px-4 rounded-md mt-0.5">Send</button>
+                            </form>
+                        </div>
+                        <div class="social-links bg-[#000000b9] text-white border-2 border-white w-[30%] h-[90%] rounded-2xl flex flex-col gap-6 text-5xl justify-center items-center p-4">
+                            <a href="https://wa.me/+918887816529" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="mailto:panurag8127@gmail.com"      target="_blank"><i class="fa-regular fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/anurag-pandit-2246472ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"target="_blank"><i class="fa-brands fa-linkedin" ></i></a>
+                            <a href="https://github.com/AnuragPandit01" target="_blank"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.instagram.com/i_m.panditanurag/profilecard/?igsh=MXhqNTcwdzBxeHFnaA=="target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+              </section>
+        <!-- footer section -->
+        <footer class="w-full bg-[#1a1b1b] text-white py-6 border-t-2 border-gray-700">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Footer Logo -->
+            <div class="text-white font-semibold text-[1.5rem] tracking-widest mb-4 md:mb-0" style="font-family: 'Lobster', cursive;">
+                ANURAG
+            </div>
+            <!-- Footer Links -->
+            <div class="flex flex-col md:flex-row gap-4 text-center">
+                <a href="#home" class="hover:text-[#91A762]">Home</a>
+                <a href="#about" class="hover:text-[#91A762]">About</a>
+                <a href="#skills" class="hover:text-[#91A762]">Skills</a>
+                <a href="#projects" class="hover:text-[#91A762]">Projects</a>
+                <a href="#contact" class="hover:text-[#91A762]">Contact</a>
+            </div>
+            <!-- Social Media Icons -->
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="https://twitter.com" target="_blank" class="hover:text-[#91A762]">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="hover:text-[#91A762]">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="hover:text-[#91A762]">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <div class="text-center text-sm text-gray-400 mt-4">
+            &copy; 2025 Anurag. All rights reserved.
+        </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/tabs.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="portfolio.js"></script>
+</body>
+</html>

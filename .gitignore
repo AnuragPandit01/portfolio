@@ -1,0 +1,12 @@
+# Ignore node modules
+node_modules/
+
+# Ignore Tailwind CSS build output
+output.css
+
+# Optional: Ignore system or IDE-specific files
+.DS_Store
+*.log
+*.env
+*.swp
+*.swo
