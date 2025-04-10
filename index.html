@@ -28,147 +28,245 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    .swiper {
-      position: absolute;
-      width: 90%;
-      height: 40%;
-      margin-bottom: 1em;
+    :root {
+      --primary-color: #69a7f8;
+      --dark-bg: #1a1b1b;
+      --light-bg: #f5f7fa;
+    }
+
+    /* Dark mode styles (default) */
+    html.dark {
+      --text-color: #e5e7eb;
+      --bg-color: var(--dark-bg);
+    }
+
+    /* Light mode styles */
+    html:not(.dark) {
+      --text-color: #1a1b1b;
+      --bg-color: var(--light-bg);
+    }
+
+    /* For the smooth scrolling behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Add padding to account for fixed header */
+    body {
+      padding-top: 72px;
+      /* Adjust based on your header height */
+    }
+
+    /* Active state for navigation links */
+    .nav-link.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Transition for hamburger menu */
+    .hamburger-line {
+      transform-origin: center;
+    }
+
+    /* Add spacing to account for fixed header when navigating to anchor links */
+    section[id] {
+      scroll-margin-top: 80px;
     }
 
     .swiper-slide {
-      width: 100%;
-      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: auto;
+      min-height: 300px;
+    }
+
+    .swiper-slide:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-card {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      border-radius: 18px;
-      color: #fff;
-      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      padding: 1rem;
+    }
+
+    /* Style the Swiper navigation buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #6274a7;
+      background: rgba(255, 255, 255, 0.2);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 20px;
+    }
+
+    /* Style the Swiper pagination */
+    .swiper-pagination-bullet {
+      background: #6274a7;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+
+    @media (max-width: 640px) {
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+      }
+
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        font-size: 16px;
+      }
     }
 
     ::-webkit-scrollbar {
       display: none;
     }
 
-    .hero {
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      z-index: 0;
-      flex-direction: row;
-      background: transparent;
-    }
+    @keyframes float {
 
-    .left,
-    .right {
-      height: 100%;
-      width: 50vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      /* border: 1px solid white; */
-    }
-
-    .img-container {
-      height: 80%;
-      width: 80%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      margin: 1rem;
-      border: 2px solid white;
-      border-radius: 10px;
-      box-shadow: rgba(255, 255, 255, 0.8) 0px 2px 8px 0px;
-    }
-
-    /* Responsive for tablets */
-    @media screen and (max-width: 1024px) {
-      .hero {
-        flex-direction: column;
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      .left,
-      .right {
-        width: 100%;
-        height: 50%;
+      50% {
+        transform: translateY(-20px);
       }
     }
 
-    /* Responsive for mobile devices */
-    @media screen and (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        height: auto;
-        min-height: 100vh;
-        position: relative;
+    @keyframes float-slow {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      .left,
-      .right {
-        width: 100%;
-        height: auto;
-        padding: 1rem;
+      50% {
+        transform: translateY(-10px);
       }
-
-      .img-container {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    .square1 {
-      position: absolute;
-      top: 5%;
-      left: 3%;
-      width: 100px;
-      height: 100px;
-      background-color: #69a7f8;
-      z-index: -1;
-      border-radius: 10px;
-    }
-
-    .square2 {
-      position: absolute;
-      bottom: 5%;
-      left: 40%;
-      width: 100px;
-      height: 100px;
-      background-color: #69a7f8;
-      z-index: -1;
-      border-radius: 10px;
-    }
-
-    .intro-box {
-      height: 60%;
-      width: 100%;
-    }
-
-    .greet {
-      -webkit-text-stroke: 4px #d8e2c2;
-    }
-
-    .greet2 {
-      -webkit-text-stroke: 2px #ffffff;
-      font-family: "Hind", sans-serif;
-      font-weight: 700;
-      font-style: oblique;
-
     }
 
     @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
       50% {
         opacity: 0;
       }
     }
 
-    .after\:animate-blink::after {
-      animation: blink 0.7s infinite;
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-slow {
+      animation: float-slow 8s ease-in-out infinite;
+    }
+
+    .animate-blink {
+      animation: blink 0.8s infinite;
+    }
+
+    /* Make greeting text more visible */
+    .greet,
+    .greet2 {
+      text-shadow: 0 0 15px rgba(74, 94, 119, 0.2);
+    }
+
+    /* Enhance squares visibility */
+    .square1,
+    .square2 {
+      box-shadow: 0 0 20px rgba(74, 94, 119, 0.3);
+    }
+
+    .about-text,
+    .education {
+      background: linear-gradient(90deg, rgba(79, 70, 229, 0.2) 0%, rgba(99, 102, 241, 0.2) 50%, rgba(129, 140, 248, 0.2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: gradientFlow 8s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Education card hover effects */
+    .edu-section {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .edu-section:hover {
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.15);
+    }
+
+    /* About me section styling */
+    .about-me {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-me::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0) 70%);
+      z-index: -1;
+    }
+
+    .about-me::after {
+      content: "";
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, rgba(79, 70, 229, 0) 70%);
+      z-index: -1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .edu-section {
+        margin-bottom: 12px;
+      }
     }
 
     .about-text,
@@ -178,361 +276,606 @@
     }
 
     .project-card {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  height: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  margin-bottom: 20px;
-}
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      height: 280px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 20px;
+    }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-.project-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.project-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 12px 16px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  z-index: 2;
-}
+    .project-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 16px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      z-index: 2;
+    }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 1;
-}
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1;
+    }
 
-.project-card:hover .overlay {
-  opacity: 1;
-}
+    .project-card:hover .overlay {
+      opacity: 1;
+    }
 
-/* Responsive adjustments */
-@media (min-width: 640px) and (max-width: 1023px) {
-  .project-card {
-    height: 240px;
-  }
-  
-  /* Make the last card span 2 columns on tablet */
-  .project-card:last-child {
-    height: 260px;
-  }
-}
+    /* Responsive adjustments */
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .project-card {
+        height: 240px;
+      }
 
-@media (max-width: 639px) {
-  .project-card {
-    height: 240px;
-  }
-}
+      /* Make the last card span 2 columns on tablet */
+      .project-card:last-child {
+        height: 260px;
+      }
+    }
 
+    @media (max-width: 639px) {
+      .project-card {
+        height: 240px;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-[#fcfcfc] pt-4 text-[#1d1c1c] dark:bg-[#111111]  dark:text-white font-sans antialiased relative"
-  style="font-family: 'Poppins', sans-serif;">
-
-  <div class="wrapper">
-    <!-- navbar -->
-    <header
-      class="w-full h-11  bg-[#1a1b1b] text-gray-200 flex items-center justify-between p-2 border-b-2 border-gray-700">
+<body class=" font-sans antialiased relative" style="font-family: 'Poppins', sans-serif;">
+  <!-- Navbar -->
+  <header
+    class="fixed top-0 left-0 right-0 w-full bg-[#1a1b1b] backdrop-blur-sm text-gray-200 flex items-center justify-between px-4 md:px-8 py-4 border-b border-gray-700/50 z-50 transition-all duration-300 shadow-md"
+    id="main-header">
+    <!-- Logo Section -->
+    <div class="flex items-center">
       <div
-        class="logoText w-[8rem] p-2 h-[3rem] flex justify-center tracking-widest text-white  font-semibold text-[1.5rem] hover:bg-white hover:text-[#45425A] rounded transition duration-300 ease-in-out"
+        class="logoText p-1 h-10 flex items-center justify-center tracking-widest text-white font-semibold text-xl md:text-2xl hover:bg-white/10 rounded transition duration-300 ease-in-out"
         style="font-family: 'Lobster', cursive;">
-        ANURAG
+        <span class="text-[#69a7f8]">A</span><span class="text-white">NURAG</span>
       </div>
-      <!-- navbar section -->
-      <nav class="nav-menu hidden md:flex gap-4 text-[1.2rem] font-normal">
-        <a href="#home"
-          class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left ">Home</a>
-        <a href="#about"
-          class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
-        <a href="#skills"
-          class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
-        <a href="#projects"
-          class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
-        <a href="#contact"
-          class="hover:text-[#91A762] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#91A762] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
-      </nav>
-      <!-- hamburger menu -->
-      <div class="showBtn md:hidden flex items-center justify-center w-10 h-10  rounded-full cursor-pointer"
-        id="hamburger-menu">
-        <i class="fa-solid fa-bars text-white"></i>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-menu hidden md:flex items-center gap-6 text-base font-medium">
+      <a href="#home"
+        class="nav-link active py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Home</a>
+      <a href="#about"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
+      <a href="#skills"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
+      <a href="#projects"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
+      <a href="#contact"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
+
+      <a href="path/to/your-resume.pdf" download="Anurag_Resume.pdf"
+        class="ml-2 px-4 py-2 bg-gradient-to-r from-[#4a5e77] to-[#69a7f8] text-white rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#69a7f8]/20 hover:scale-105 flex items-center">
+        <i class="fa-solid fa-download mr-2 text-xs"></i>
+        Resume
+      </a>
+    </nav>
+
+    <!-- Toggle Theme Button (Dark/Light) -->
+    <button id="theme-toggle"
+      class="hidden md:flex w-10 h-10 rounded-full items-center justify-center text-gray-300 hover:bg-gray-700/50 transition-colors duration-300 ml-2">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden flex items-center">
+      <button id="theme-toggle-mobile"
+        class="w-10 h-10 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-700/50 transition-colors duration-300 mr-1">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button id="hamburger-menu"
+        class="w-10 h-10 flex flex-col items-center justify-center rounded-md cursor-pointer hover:bg-gray-700/50 transition-colors duration-300 focus:outline-none">
+        <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
+        <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
+        <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu"
+    class="fixed top-16 -right-full w-full h-screen bg-[#1a1b1b]/95 backdrop-blur-md md:hidden transition-all duration-500 ease-in-out z-40 flex flex-col pt-6 pb-20 overflow-y-auto">
+    <nav class="flex flex-col px-6 py-4 gap-4">
+      <a href="#home"
+        class="mobile-link active flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-house mr-3 text-[#69a7f8]"></i>
+        Home
+      </a>
+      <a href="#about"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-user mr-3 text-[#69a7f8]"></i>
+        About
+      </a>
+      <a href="#skills"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-code mr-3 text-[#69a7f8]"></i>
+        Skills
+      </a>
+      <a href="#projects"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-briefcase mr-3 text-[#69a7f8]"></i>
+        Projects
+      </a>
+      <a href="#contact"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-envelope mr-3 text-[#69a7f8]"></i>
+        Contact
+      </a>
+
+      <div class="border-t border-gray-700/50 my-2"></div>
+
+      <a href="path/to/your-resume.pdf" download="Anurag_Resume.pdf"
+        class="mobile-link flex items-center justify-center py-3 px-4 mt-2 rounded-lg bg-gradient-to-r from-[#4a5e77] to-[#69a7f8] text-lg font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#69a7f8]/20">
+        <i class="fa-solid fa-download mr-3"></i>
+        Download Resume
+      </a>
+    </nav>
+
+    <!-- Social Links Mobile -->
+    <div class="mt-auto px-6 py-4">
+      <p class="text-gray-400 mb-4 text-sm">Connect with me</p>
+      <div class="flex gap-4">
+        <a href="#"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
       </div>
+    </div>
+  </div>
+  <div class="wrapper">
 
-      <!-- close button -->
-      <div class="closeBtn hidden md:hidden flex items-center justify-center w-10 h-10  rounded-full cursor-pointer"
-        id="close-menu">
-        <i class="fa-solid fa-xmark text-white"></i>
-        <!-- mobile menu -->
-        <div
-          class="mobile-menu hidden absolute top-16 left-0 w-full bg-[#123458] text-gray-200 flex flex-col items-center justify-center gap-4 p-4 rounded-b-lg md:hidden z-50"
-          id="mobile-menu">
-          <a href="#home" class="hover:text-[#91A762] text-lg">Home</a>
-          <a href="#about" class="hover:text-[#91A762] text-lg">About</a>
-          <a href="#skills" class="hover:text-[#91A762] text-lg">Skills</a>
-          <a href="#projects" class="hover:text-[#91A762] text-lg">Projects</a>
-          <a href="#contact" class="hover:text-[#91A762] text-lg">Contact</a>
-        </div>
-    </header>
-    <section data-scroll id="home">
+    <!-- Hero Section -->
+    <section data-scroll id="home" class="min-h-screen w-full relative overflow-hidden">
+      <!-- Background Elements -->
+      <div
+        class="greet text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#4a5e77] opacity-40 absolute top-10 md:top-0 left-1/2 transform -translate-x-1/2 md:left-[43%] md:-translate-x-0 z-0">
+        Hello</div>
+      <div
+        class="greet2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold absolute bottom-10 right-5 md:top-12 md:left-15 text-transparent bg-clip-text bg-gradient-to-r from-[#4a5e77] to-[#69a7f8] opacity-40 z-0">
+        नमस्ते</div>
 
-      <!-- hero section -->
-      <div class="hero">
-        <div class="greet text-[6em] font-bold text-[#4a5e77] absolute top-0 left-[43%]">Hello</div>
-        <!-- left section -->
-        <div class="left">
-          <div class="square1"></div>
-          <div class="square2"></div>
-          <div class="img-container">
-            <img style="height: 100%; border-radius: 10px;" src="images/myImage.jpg" alt="">
+      <!-- Content Container -->
+      <div
+        class="hero mt-8 flex flex-col md:flex-row items-center justify-center w-full h-full px-4 py-12 md:py-0 md:space-x-16 lg:space-x-24">
+        <!-- Left Section -->
+        <div class="left relative w-full md:w-2/5 flex justify-center md:justify-end items-center mb-16 md:mb-0">
+          <div
+            class="square1 absolute w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tr from-[#4a5e77] to-[#69a7f8] opacity-30 rounded-lg -top-8 -left-4 md:-top-16 md:-left-16 z-0 animate-float-slow">
+          </div>
+          <div
+            class="square2 absolute w-28 h-28 md:w-36 md:h-36 bg-gradient-to-bl from-[#4a5e77] to-[#69a7f8] opacity-30 rounded-lg -bottom-8 -right-4 md:-bottom-16 md:-right-16 z-0 animate-float">
+          </div>
+          <div
+            class="img-container relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 z-10">
+            <img class="h-full w-full object-cover" src="images/myImage.jpg" alt="Profile Image">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#4a5e77]/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+            </div>
           </div>
         </div>
-        <!-- right section -->
-        <div class="right flex-col relative">
 
-          <div class="greet2 text-[7em] font-bold absolute top-12 left-15 text-transparent ">नमस्ते</div>
-          <div class="intro-box relative  mt-11 rounded-lg shadow-sm shadow-gray-400">
-
-            <div class="intro flex flex-col items-center justify-center h-full w-full p-4 rounded-xl">
-              <div class="w-full h-[4em] flex">
-                <div class="w-[25%] h-full  text-[3em] text-center">I am</div>
-                <div id="typed"
-                  class="text-[3em] text-[#69a7f8] font-bold leading-[1.2] relative p-2 after:content-['|'] after:absolute after:-right-4 after:top-1/2 after:-translate-y-1/2 after:text-[1em] after:animate-blink">
+        <!-- Right Section -->
+        <div class="right w-full md:w-3/5 lg:w-1/2 flex flex-col items-center md:items-start">
+          <div
+            class="intro-box w-full max-w-xl bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl p-8 min-h-64">
+            <div class="intro flex flex-col items-center md:items-start justify-center w-full">
+              <div class="w-full flex flex-col md:flex-row items-center md:items-baseline mb-6">
+                <div class="text-2xl md:text-3xl lg:text-4xl text-[#4a5e77] font-medium mr-3">I am</div>
+                <div class="typed-container relative min-w-48">
+                  <span id="typed"
+                    class="text-3xl md:text-4xl lg:text-5xl text-[#69a7f8] font-bold leading-tight"></span>
+                  <span
+                    class="typed-cursor text-3xl md:text-4xl lg:text-5xl text-[#69a7f8] font-bold animate-blink">|</span>
                 </div>
               </div>
-              <a href="path/to/your-resume.pdf" download="Anurag_Resume.pdf">
+              <p class="text-[#4a5e77] text-center md:text-left mb-8 opacity-90 text-lg">Turning ideas into elegant
+                digital experiences with passion and precision.</p>
+              <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a href="path/to/your-resume.pdf" download="Anurag_Resume.pdf" class="group">
+                  <button
+                    class="flex items-center rounded-full bg-gradient-to-r from-[#4a5e77] to-[#69a7f8] py-3 px-6 text-white font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 active:shadow-inner"
+                    type="button">
+                    <i class="fa-solid fa-file-arrow-down text-lg mr-2 group-hover:animate-bounce"></i>
+                    <span>Download Resume</span>
+                  </button>
+                </a>
                 <button
-                  class="flex mt-4 items-center cursor-pointer rounded-md bg-gradient-to-tr from-[#48607f] to-[#529af8] py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  class="flex items-center rounded-full bg-white py-3 px-6 text-[#4a5e77] font-medium text-sm border border-[#4a5e77]/30 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 hover:bg-[#4a5e77]/5 active:scale-95 active:shadow-inner"
                   type="button">
-                  <i class="fa-solid fa-file-arrow-down text-[20px]"></i>
-                  <span class="px-2">Resume</span>
+                  <i class="fa-solid fa-user text-lg mr-2"></i>
+                  <span>Contact Me</span>
                 </button>
-              </a>
+              </div>
+            </div>
+          </div>
+          <div class="social-links mt-8 flex gap-4 justify-center md:justify-start">
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-[#4a5e77] hover:text-white transition-all duration-300 text-[#4a5e77] text-lg">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-[#4a5e77] hover:text-white transition-all duration-300 text-[#4a5e77] text-lg">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-[#4a5e77] hover:text-white transition-all duration-300 text-[#4a5e77] text-lg">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-[#4a5e77] hover:text-white transition-all duration-300 text-[#4a5e77] text-lg">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+        <span class="text-sm text-[#4a5e77] mb-2">Scroll Down</span>
+        <i class="fa-solid fa-chevron-down text-[#69a7f8]"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about"
+      class="w-full min-h-screen relative flex flex-col lg:flex-row justify-center items-center bg-transparent py-12 px-4 md:px-8 overflow-hidden">
+      <!-- Background Text Elements - Responsive positioning and sizing -->
+      <div data-scroll data-scroll-speed="3" data-scroll-direction="vertical"
+        class="about-text text-5xl sm:text-7xl md:text-8xl lg:text-[10em] tracking-wide absolute bottom-[5%] sm:bottom-[8%] lg:bottom-[12%] left-[2%] text-transparent italic font-mono font-bold opacity-10">
+        About
+      </div>
+
+      <div data-scroll data-scroll-speed="3" data-scroll-direction="vertical" data-scroll-offset="10,10%"
+        class="education text-4xl sm:text-5xl md:text-6xl lg:text-[7em] tracking-wide absolute top-[5%] sm:top-[10%] lg:top-[15%] right-2 text-transparent italic font-mono font-bold opacity-10">
+        Education
+      </div>
+
+      <!-- Content Container -->
+      <div class="flex flex-col lg:flex-row w-full max-w-7xl gap-8 mt-16 md:mt-24 lg:mt-0 z-10">
+        <!-- About Me Section -->
+        <div data-scroll data-scroll-speed="2" data-scroll-direction="horizontal"
+          class="about-me w-full lg:w-1/2 p-6 md:p-8 text-base md:text-lg lg:text-xl mt-4 tracking-wide font-sans opacity-90 text-justify rounded-xl bg-gradient-to-br from-blue-50/10 to-indigo-100/10 backdrop-blur-sm border border-white/20 shadow-lg">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-blue-600 tracking-wide">About Me</h2>
+          <p class="leading-relaxed">
+            Hi, I'm <span class="font-bold text-indigo-600">Anurag</span>—a passionate web developer who loves crafting
+            seamless, intuitive, and visually striking digital
+            experiences. With expertise in <span class="text-blue-600 font-semibold">React</span>, <span
+              class="text-indigo-600 font-semibold">Java</span>, and <span
+              class="text-purple-600 font-semibold">SQL</span>, I specialize in turning complex ideas into elegant,
+            high-performing solutions.
+          </p>
+          <p class="mt-4 leading-relaxed">
+            Currently pursuing my <span class="font-bold text-indigo-600">MCA</span>, I'm on a relentless journey of
+            learning, innovation, and
+            pushing the boundaries of web development. If you're looking for creativity, efficiency, and a
+            problem-solving
+            mindset—let's connect and build something amazing!
+          </p>
+        </div>
+
+        <!-- Education Section -->
+        <div data-scroll data-scroll-speed="3" data-scroll-direction="horizontal"
+          class="education-card w-full lg:w-1/2 mt-4 flex items-center justify-center">
+          <div class="w-full max-w-xl flex flex-col gap-4 items-center justify-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-2 text-indigo-600 tracking-wide">Education</h2>
+
+            <!-- MCA -->
+            <div
+              class="edu-section w-full bg-white rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div
+                class="text-2xl md:text-3xl font-bold text-gray-800 min-w-16 flex items-center justify-center mb-2 sm:mb-0">
+                MCA</div>
+              <div
+                class="text-sm md:text-base font-bold text-gray-700 flex flex-col justify-center items-center text-center sm:text-left">
+                Maharishi Markandeshwar
+                <div>(Deemed to be University)</div>
+              </div>
+              <div class="text-sm md:text-base font-semibold text-indigo-600 min-w-20 text-center mt-2 sm:mt-0">2024 -
+                Present</div>
+            </div>
+
+            <!-- BA -->
+            <div
+              class="edu-section w-full bg-white rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-l-8 border-l-indigo-500 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div
+                class="text-2xl md:text-3xl font-bold text-gray-800 min-w-16 flex items-center justify-center mb-2 sm:mb-0">
+                BA</div>
+              <div
+                class="text-sm md:text-base font-bold text-gray-700 flex flex-col justify-center items-center text-center sm:text-left">
+                Pro. Rajendra Prasad
+                <div>(Rajju Bhaiya University)</div>
+              </div>
+              <div class="text-sm md:text-base font-semibold text-indigo-600 min-w-20 text-center mt-2 sm:mt-0">2020 -
+                2024</div>
+            </div>
+
+            <!-- 12th -->
+            <div
+              class="edu-section w-full bg-white rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-l-8 border-l-purple-500 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div
+                class="text-2xl md:text-3xl font-bold text-gray-800 min-w-16 flex items-center justify-center mb-2 sm:mb-0">
+                12<sup>th</sup></div>
+              <div
+                class="text-sm md:text-base font-bold text-gray-700 flex flex-col justify-center items-center text-center sm:text-left">
+                Bal Bharti Inter College
+                <div>(UP Board)</div>
+              </div>
+              <div class="text-sm md:text-base font-semibold text-indigo-600 min-w-20 text-center mt-2 sm:mt-0">2020
+              </div>
+            </div>
+
+            <!-- 10th -->
+            <div
+              class="edu-section w-full bg-white rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-l-8 border-l-blue-400 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div
+                class="text-2xl md:text-3xl font-bold text-gray-800 min-w-16 flex items-center justify-center mb-2 sm:mb-0">
+                10<sup>th</sup></div>
+              <div
+                class="text-sm md:text-base font-bold text-gray-700 flex flex-col justify-center items-center text-center sm:text-left">
+                Bal Bharti Inter College
+                <div>(UP Board)</div>
+              </div>
+              <div class="text-sm md:text-base font-semibold text-indigo-600 min-w-20 text-center mt-2 sm:mt-0">2018
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- about section -->
-    <div id="about" class="w-[100vw] h-[110vh] relative flex justify-center items-center bg-transparent py-4 -z-10">
-      <div data-scroll data-scroll-speed="3" data-scroll-direction="vertical"
-        class="about-text text-[10em]  tracking-wide absolute bottom-[12%] left-[2%] text-transparent italic font-stretch-50% font-mono font-bold">
-        About</div>
-      <div data-scroll data-scroll-speed="3" data-scroll-direction="vertical" data-scroll-offset="10,10%"
-        class="education text-[7em] tracking-wide absolute top-[15%] right-2 text-transparent italic font-stretch-50% font-mono font-bold">
-        Education</div>
-      <div data-scroll data-scroll-speed="2" data-scroll-direction="horizontal"
-        class="about-me w-[50%] h-[75%] p-8 text-[1.4em] mt-4 tracking-widest font-mono opacity-80 text-justify">
-        Hi, I’m Anurag—a passionate web developer who loves crafting seamless, intuitive, and visually striking digital
-        experiences. With expertise in React, Java, and SQL, I specialize in turning complex ideas into elegant,
-        high-performing solutions. Currently pursuing my MCA, I’m on a relentless journey of learning, innovation, and
-        pushing the boundaries of web development. If you’re looking for creativity, efficiency, and a problem-solving
-        mindset—let’s connect and build something amazing!
-      </div>
-      <div data-scroll data-scroll-speed="3" data-scroll-direction="horizontal"
-        class="education-card w-[50%] mt-4 h-[75%] flex items-center justify-center">
-        <div
-          class="w-[95%] h-[80%] shadow-sm shadow-gray-500  rounded-4xl flex flex-col gap-4 items-center justify-center">
-          <div
-            class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
-            <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">MCA</div>
-            <div class="text-[1em] font-bold text-gray-700 flex flex-col justify-center items-center w-[15em]">Maharishi
-              Markandeshwar <div> (Deemed to be University)</div>
-            </div>
-            <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2024 - Present</div>
-          </div>
-
-          <div
-            class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
-            <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">BA</div>
-            <div class="text-[1em] font-bold text-gray-700 w-[15em] flex flex-col justify-center items-center">Pro.
-              Rajendra Prasad <div>(Rajju Bhaiya University)</div>
-            </div>
-            <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2020 - 2024</div>
-          </div>
-
-          <div
-            class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
-            <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">12<sup>th</sup>
-            </div>
-            <div
-              class="text-[1em] font-bold text-gray-700 w-[15em] px-4 border-black flex flex-col justify-center items-center">
-              Bal Bharti Inter College <div>(UP Board)</div>
-            </div>
-            <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2020</div>
-          </div>
-
-          <div
-            class="edu-section w-[90%] h-[15%] bg-[#ffffff] rounded-r-2xl rounded-tr-2xl rounded-br-2xl flex items-center justify-between p-4 border-l-8 border-l-blue-500 shadow-lg">
-            <div class="text-[2em] font-bold text-gray-800 w-[3em] flex items-center justify-center">10<sup>th</sup>
-            </div>
-            <div class="text-[1em] font-bold text-gray-700 w-[15em] px-4 flex flex-col justify-center items-center">Bal
-              Bharti Inter College <div>(UP Board)</div>
-            </div>
-            <div class="text-[1em] font-semibold text-gray-600 w-[8em] text-center">2018</div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Skills Section -->
     <section data-scroll data-scroll-speed="1" id="skills"
-      class="w-[100vw] h-[100vh] relative flex flex-col justify-center items-center bg-transparent ">
+      class="w-full min-h-screen py-12 px-4 md:px-8 relative flex flex-col justify-center items-center bg-transparent overflow-hidden">
+
+      <!-- Background Title Text -->
       <div data-scroll data-scroll-speed="2" data-scroll-direction="vertical" data-scroll-position="right"
         id="skill-text"
-        class="w-full h-full  -z-20 absolute text-[10em] tracking-wide text-transparent italic font-stretch-50% font-mono font-bold">
-        <div class="absolute bottom-[20]">#Skills</div>
+        class="w-full h-full -z-20 absolute text-7xl sm:text-8xl md:text-9xl lg:text-[10em] tracking-wide text-transparent italic font-mono font-bold opacity-10">
+        <div class="absolute bottom-[20%] md:bottom-[20]">#Skills</div>
       </div>
 
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/html--icon.png" alt="html icon" class="w-[10em] h-[10em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center ">
-            <img src="images/cssIcon.png" alt="html icon" class="w-[10em] h-[10em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/jsicon.png" alt="html icon" class="w-[10em] h-[10em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/TailwindIcon.png" alt="html icon" class="w-[10em] h-[10em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/reactIcon.png" alt="html icon" class="w-[10em] h-[10em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/javaIcon.png" alt="html icon" class="w-[11em] h-[12em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/cpp.png" alt="html icon" class="w-[11em] h-[12em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/excelIcon.png" alt="html icon" class="w-[11em] h-[12em]">
-          </div>
-          <div class="swiper-slide flex justify-center items-center">
-            <img src="images/tallyIcon.png" alt="html icon" class="w-[11em] h-[12em]">
+      <!-- Section Title -->
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center relative z-10">My Skills</h2>
+
+      <!-- Swiper Container with Custom Sizing -->
+      <div class="swiper mySwiper w-full max-w-5xl">
+        <div class="swiper-wrapper py-8">
+          <!-- HTML -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/html--icon.png" alt="HTML icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">HTML</h3>
+            </div>
           </div>
 
+          <!-- CSS -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/cssIcon.png" alt="CSS icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">CSS</h3>
+            </div>
+          </div>
+
+          <!-- JavaScript -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/jsicon.png" alt="JavaScript icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">JavaScript</h3>
+            </div>
+          </div>
+
+          <!-- Tailwind -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/TailwindIcon.png" alt="Tailwind icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">Tailwind CSS</h3>
+            </div>
+          </div>
+
+          <!-- React -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/reactIcon.png" alt="React icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">React</h3>
+            </div>
+          </div>
+
+          <!-- Java -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/javaIcon.png" alt="Java icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">Java</h3>
+            </div>
+          </div>
+
+          <!-- C++ -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/cpp.png" alt="C++ icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">C++</h3>
+            </div>
+          </div>
+
+          <!-- Excel -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/excelIcon.png" alt="Excel icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">Excel</h3>
+            </div>
+          </div>
+
+          <!-- Tally -->
+          <div
+            class="swiper-slide flex justify-center items-center rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 p-4 shadow-lg">
+            <div class="skill-card">
+              <img src="images/tallyIcon.png" alt="Tally icon"
+                class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain">
+              <h3 class="mt-4 text-xl md:text-2xl font-semibold text-center">Tally</h3>
+            </div>
+          </div>
         </div>
+
+        <!-- Add pagination -->
+        <div class="swiper-pagination mt-8"></div>
+
+        <!-- Add navigation buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
     </section>
     <h1 class="text-5xl font-bold block text-center">Projects</h1>
     <!-- Projects Section -->
-<section data-scroll id="Projects" class="w-full min-h-screen p-4 md:p-6 lg:p-8 relative flex justify-center items-center">
-  <div class="w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-    
-    <!--Project Card 1 -->
-    <div class="project-card w-full mx-auto">
-      <!-- Background Image -->
-      <img src="images/project1TODo.png" alt="Project Background" class="w-full h-full object-cover">
+    <section data-scroll id="projects"
+      class="w-full min-h-screen p-4 md:p-6 lg:p-8 relative flex justify-center items-center">
+      <div class="w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
-      <!-- Project Title (Always Visible) -->
-      <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">To-Do app</div>
+        <!--Project Card 1 -->
+        <div class="project-card w-full mx-auto">
+          <!-- Background Image -->
+          <img src="images/project1TODo.png" alt="Project Background" class="w-full h-full object-cover">
 
-      <!-- Overlay Content (Visible on Hover) -->
-      <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
-        <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
-          It is a simple To-DO app, allows users to add, delete, and mark tasks as completed. It features a clean
-          and responsive design, making task management intuitive and efficient.
-        </p>
-        <a href="https://github.com/AnuragPandit01/To-do-List" target="_blank" 
-           class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
-          View Code
-        </a>
+          <!-- Project Title (Always Visible) -->
+          <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">To-Do app</div>
+
+          <!-- Overlay Content (Visible on Hover) -->
+          <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
+            <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
+              It is a simple To-DO app, allows users to add, delete, and mark tasks as completed. It features a clean
+              and responsive design, making task management intuitive and efficient.
+            </p>
+            <a href="https://github.com/AnuragPandit01/To-do-List" target="_blank"
+              class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <!--Project Card 2 -->
+        <div class="project-card w-full mx-auto">
+          <!-- Background Image -->
+          <img src="images/imageSearch.png" alt="Project Background" class="w-full h-full object-cover">
+
+          <!-- Project Title (Always Visible) -->
+          <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">Image Search</div>
+
+          <!-- Overlay Content (Visible on Hover) -->
+          <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
+            <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
+              This is a simple image search application that allows users to search for images using keywords. It
+              fetches images from an API and displays them in a grid format, providing a user-friendly interface for
+              browsing images.
+            </p>
+            <a href="https://github.com/AnuragPandit01/image-search" target="_blank"
+              class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <!--Project Card 3 -->
+        <div class="project-card w-full mx-auto">
+          <!-- Background Image -->
+          <img src="images/passgenr.png" alt="Project Background" class="w-full h-full object-cover">
+
+          <!-- Project Title (Always Visible) -->
+          <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">Password Generator</div>
+
+          <!-- Overlay Content (Visible on Hover) -->
+          <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
+            <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
+              This is a simple password generator application that allows users to generate strong and secure passwords.
+              It provides options for customizing password length and character types.
+            </p>
+            <a href="https://github.com/AnuragPandit01/passwordGenerator" target="_blank"
+              class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
+              View Code
+            </a>
+          </div>
+        </div>
+
+        <!--Project Card 4 -->
+        <div class="project-card w-full mx-auto sm:col-span-2 lg:col-span-1">
+          <!-- Background Image -->
+          <img src="images/portfolioimg.png" alt="Project Background" class="w-full h-full object-cover">
+
+          <!-- Project Title (Always Visible) -->
+          <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">Portfolio</div>
+
+          <!-- Overlay Content (Visible on Hover) -->
+          <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
+            <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
+              This is my personal portfolio website, showcasing my skills, projects, and contact information. It
+              features a clean and modern design, providing an overview of my work and allowing potential clients or
+              employers to get in touch with me easily.
+            </p>
+            <a href="https://github.com/AnuragPandit01/portfolio" target="_blank"
+              class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
+              View Code
+            </a>
+          </div>
+        </div>
+
       </div>
-    </div>
-
-    <!--Project Card 2 -->
-    <div class="project-card w-full mx-auto">
-      <!-- Background Image -->
-      <img src="images/imageSearch.png" alt="Project Background" class="w-full h-full object-cover">
-
-      <!-- Project Title (Always Visible) -->
-      <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">Image Search</div>
-
-      <!-- Overlay Content (Visible on Hover) -->
-      <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
-        <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
-          This is a simple image search application that allows users to search for images using keywords. It
-          fetches images from an API and displays them in a grid format, providing a user-friendly interface for
-          browsing images.
-        </p>
-        <a href="https://github.com/AnuragPandit01/image-search" target="_blank" 
-           class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
-          View Code
-        </a>
-      </div>
-    </div>
-
-    <!--Project Card 3 -->
-    <div class="project-card w-full mx-auto">
-      <!-- Background Image -->
-      <img src="images/passgenr.png" alt="Project Background" class="w-full h-full object-cover">
-
-      <!-- Project Title (Always Visible) -->
-      <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">Password Generator</div>
-
-      <!-- Overlay Content (Visible on Hover) -->
-      <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
-        <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
-          This is a simple password generator application that allows users to generate strong and secure passwords.
-          It provides options for customizing password length and character types.
-        </p>
-        <a href="https://github.com/AnuragPandit01/passwordGenerator" target="_blank" 
-           class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
-          View Code
-        </a>
-      </div>
-    </div>
-
-    <!--Project Card 4 -->
-    <div class="project-card w-full mx-auto sm:col-span-2 lg:col-span-1">
-      <!-- Background Image -->
-      <img src="images/portfolioimg.png" alt="Project Background" class="w-full h-full object-cover">
-
-      <!-- Project Title (Always Visible) -->
-      <div class="project-title text-lg sm:text-xl lg:text-2xl font-bold p-3">Portfolio</div>
-
-      <!-- Overlay Content (Visible on Hover) -->
-      <div class="overlay p-3 sm:p-4 flex flex-col justify-center items-center">
-        <p class="description text-sm md:text-base mb-3 md:mb-4 text-center">
-          This is my personal portfolio website, showcasing my skills, projects, and contact information. It
-          features a clean and modern design, providing an overview of my work and allowing potential clients or
-          employers to get in touch with me easily.
-        </p>
-        <a href="https://github.com/AnuragPandit01/portfolio" target="_blank" 
-           class="github-link px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
-          View Code
-        </a>
-      </div>
-    </div>
-    
-  </div>
-</section>
+    </section>
 
     <!-- contact section -->
     <section id="contact" class="w-full min-h-screen relative flex justify-center flex-col items-center p-4">

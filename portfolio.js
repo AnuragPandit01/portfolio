@@ -40,47 +40,151 @@ function locoScroll() {
 locoScroll();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const hamburger = document.getElementById("hamburger-menu");
-  const closeMenu = document.getElementById("close-menu");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  // Open menu
-  hamburger.addEventListener("click", () => {
-    mobileMenu.classList.remove("hidden");
-    hamburger.classList.add("hidden");
-    closeMenu.classList.remove("hidden");
+  const header = document.getElementById('main-header');
+  const hamburgerBtn = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerLines = document.querySelectorAll('.hamburger-line');
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  
+  // Handle scroll effect
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      header.classList.add('py-2', 'shadow-lg', 'bg-[#1a1b1b]');
+      header.classList.remove('py-4', 'bg-[#1a1b1b]/95');
+    } else {
+      header.classList.add('py-4', 'bg-[#1a1b1b]/95');
+      header.classList.remove('py-2', 'shadow-lg', 'bg-[#1a1b1b]');
+    }
   });
-
-  // Close menu
-  closeMenu.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
-    hamburger.classList.remove("hidden");
-    closeMenu.classList.add("hidden");
+  
+  // Handle mobile menu toggle
+  let isMenuOpen = false;
+  hamburgerBtn.addEventListener('click', function() {
+    isMenuOpen = !isMenuOpen;
+    
+    if (isMenuOpen) {
+      mobileMenu.classList.remove('-right-full');
+      mobileMenu.classList.add('right-0');
+      
+      // Transform hamburger to X
+      hamburgerLines[0].classList.add('rotate-45', 'translate-y-2');
+      hamburgerLines[1].classList.add('opacity-0');
+      hamburgerLines[2].classList.add('-rotate-45', '-translate-y-2');
+    } else {
+      mobileMenu.classList.remove('right-0');
+      mobileMenu.classList.add('-right-full');
+      
+      // Transform X back to hamburger
+      hamburgerLines[0].classList.remove('rotate-45', 'translate-y-2');
+      hamburgerLines[1].classList.remove('opacity-0');
+      hamburgerLines[2].classList.remove('-rotate-45', '-translate-y-2');
+    }
   });
-  //typed JS
-  var typed = new Typed("#typed", {
-    strings: ["ANURAG PANDEY", "A DEVELOPER", "A DESIGNER", "A CREATOR"],
-    typeSpeed: 120,
+  
+  // Close mobile menu when clicking on a link
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('right-0');
+      mobileMenu.classList.add('-right-full');
+      
+      hamburgerLines[0].classList.remove('rotate-45', 'translate-y-2');
+      hamburgerLines[1].classList.remove('opacity-0');
+      hamburgerLines[2].classList.remove('-rotate-45', '-translate-y-2');
+      
+      isMenuOpen = false;
+    });
+  });
+  
+  // Active link highlighting based on scroll
+  window.addEventListener('scroll', function() {
+    let current = '';
+    
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= (sectionTop - 200)) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active', 'text-[#69a7f8]', 'after:scale-x-100');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active', 'text-[#69a7f8]', 'after:scale-x-100');
+      }
+    });
+    
+    mobileLinks.forEach(link => {
+      link.classList.remove('active', 'bg-[#69a7f8]/10', 'pl-6');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active', 'bg-[#69a7f8]/10', 'pl-6');
+      }
+    });
+  });
+  
+  // Theme toggle functionality
+  let isDarkMode = true; // Start with dark mode as default
+  
+  function toggleTheme() {
+    isDarkMode = !isDarkMode;
+    
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      themeToggleMobile.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    } else {
+      document.documentElement.classList.remove('dark');
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      themeToggleMobile.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+  }
+  
+  themeToggle.addEventListener('click', toggleTheme);
+  themeToggleMobile.addEventListener('click', toggleTheme);
+  // typed js
+  new Typed('#typed', {
+    strings: ['Anurag', 'a Developer', 'a Designer', 'a Creator', 'a Coder'],
+    typeSpeed: 70,
     backSpeed: 50,
     loop: true,
+    backDelay: 1500,
     showCursor: false,
   });
   // swiper js
   var swiper = new Swiper(".mySwiper", {
-    effect: 'coverflow',
+    effect: "cards",
+    grabCursor: true,
     centeredSlides: true,
-    loop: true,
-    slidesPerView: '4',
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: false,
+    slidesPerView: "auto",
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 10,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      // Mobile
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      // Tablet
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      // Desktop
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 40
+      }
     }
   });
 
