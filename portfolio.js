@@ -190,14 +190,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let tl = gsap.timeline();
 
-  tl.from("header", {
-    y: -20,
-    opacity: 0,
-    duration: 1,
-    delay: 0.2,
-    ease: "all ease",
-  })
-    .from("nav a", {
+  
+    tl.from("nav a", {
       y: -20,
       opacity: 0,
       stagger: 0.1,
