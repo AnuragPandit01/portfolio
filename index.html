@@ -349,7 +349,7 @@
   </style>
 </head>
 
-<body class="w-full h-full font-sans antialiased relative" style="font-family: 'Poppins', sans-serif;">
+<body class="w-full min-h-screen font-sans antialiased relative flex flex-col" style="font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); padding-bottom: 6rem;">
   <!-- Navbar -->
 <header class="fixed top-0 left-0 right-0 w-full bg-[#1a1b1b]/95 backdrop-blur-sm text-gray-200 flex items-center justify-between px-4 md:px-8 py-4 border-b border-gray-700/50 z-50 transition-all duration-300 shadow-md" id="main-header">
   <!-- Logo Section -->
@@ -440,7 +440,7 @@
   </div>
 </div>
   
-  <div class="wrapper">
+  <div class="wrapper flex-grow flex flex-col">
 
     <!-- Hero Section -->
     <section data-scroll id="home" class="min-h-screen w-full relative overflow-hidden">
@@ -938,35 +938,42 @@
       </div>
     </section>
     <!-- footer section -->
-    <footer class="w-full py-6 border-t-2 border-gray-700">
-      <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <!-- Footer Logo -->
-        <div class=" font-semibold text-[1.5rem] tracking-widest mb-4 md:mb-0" style="font-family: 'Lobster', cursive;">
-          ANURAG
+    <footer class="w-full bg-[#1a1a1a] text-white py-12 px-6 flex flex-col items-center ">
+      <div class="max-w-[1200px] w-full flex flex-col md:flex-row justify-between items-center gap-12 border-t-2">
+        <!-- Logo Section -->
+        <div class="flex items-center">
+          <div class="logoText p-1 h-12 flex items-center justify-center tracking-widest text-white font-semibold text-2xl md:text-3xl hover:bg-white/10 rounded transition duration-300 ease-in-out" style="font-family: 'Lobster', cursive;">
+            <span class="text-[#69a7f8]">A</span><span class="text-white">NURAG</span>
+          </div>
         </div>
-        <!-- Footer Links -->
-        <div class="flex flex-col md:flex-row gap-4 text-center">
-          <a href="#home" class="hover:text-[#91A762]">Home</a>
-          <a href="#about" class="hover:text-[#91A762]">About</a>
-          <a href="#skills" class="hover:text-[#91A762]">Skills</a>
-          <a href="#projects" class="hover:text-[#91A762]">Projects</a>
-          <a href="#contact" class="hover:text-[#91A762]">Contact</a>
-        </div>
-        <!-- Social Media Icons -->
-        <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="https://twitter.com" target="_blank" class="hover:text-[#91A762]">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" class="hover:text-[#91A762]">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com" target="_blank" class="hover:text-[#91A762]">
-            <i class="fab fa-github"></i>
-          </a>
+
+        <!-- Quick Links -->
+        <nav class="flex flex-wrap justify-center gap-8 text-base font-medium">
+          <a href="#home" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Home</a>
+          <a href="#about" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
+          <a href="#skills" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
+          <a href="#projects" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
+          <a href="#contact" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
+        </nav>
+
+        <!-- Connect Me Section -->
+        <div class="flex flex-col items-center">
+          <p class="text-gray-400 mb-4 text-sm">Connect with me</p>
+          <div class="flex gap-6">
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+              <i class="fab fa-linkedin-in text-lg"></i>
+            </a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+              <i class="fab fa-github text-lg"></i>
+            </a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+              <i class="fab fa-instagram text-lg"></i>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="text-center text-sm text-gray-400 mt-4">
-        &copy; 2025 Anurag. All rights reserved.
+      <div class="mt-8 text-gray-500 text-sm text-center">
+        © 2023 Anurag Pandey. All rights reserved.
       </div>
     </footer>
   </div>

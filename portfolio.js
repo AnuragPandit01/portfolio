@@ -126,12 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
-  // Theme toggle functionality
-  let isDarkMode = true; // Start with dark mode as default
-  
-  function toggleTheme() {
-    isDarkMode = !isDarkMode;
-    
+  // Theme toggle functionality with local storage
+  let isDarkMode = localStorage.getItem('theme') === 'dark'; // Check saved theme in local storage
+
+  function applyTheme() {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
       themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
@@ -142,7 +140,16 @@ document.addEventListener("DOMContentLoaded", function () {
       themeToggleMobile.innerHTML = '<i class="fa-solid fa-sun"></i>';
     }
   }
-  
+
+  function toggleTheme() {
+    isDarkMode = !isDarkMode;
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light'); // Save theme to local storage
+    applyTheme();
+  }
+
+  // Apply theme on page load
+  applyTheme();
+
   themeToggle.addEventListener('click', toggleTheme);
   themeToggleMobile.addEventListener('click', toggleTheme);
   // typed js
