@@ -668,6 +668,10 @@
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .-translate-x-full {
+    --tw-translate-x: -100%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .-translate-y-2 {
     --tw-translate-y: calc(var(--spacing) * -2);
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -877,6 +881,30 @@
   }
   .bg-\[\#ffffff\] {
     background-color: #ffffff;
+  }
+  .bg-\[--\] {
+    background-color: --;
+  }
+  .bg-\[--light-bg\] {
+    background-color: --light-bg;
+  }
+  .bg-\[--light\] {
+    background-color: --light;
+  }
+  .bg-\[var\(\)\] {
+    background-color: var();
+  }
+  .bg-\[var\(--\)\] {
+    background-color: var(--);
+  }
+  .bg-\[var\(--light-\)\] {
+    background-color: var(--light-);
+  }
+  .bg-\[var\(--light-bg\)\] {
+    background-color: var(--light-bg);
+  }
+  .bg-\[var\] {
+    background-color: var;
   }
   .bg-blue-600 {
     background-color: var(--color-blue-600);
@@ -1168,6 +1196,9 @@
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
   }
+  .text-\[\#1a1b1b\] {
+    color: #1a1b1b;
+  }
   .text-\[\#1d1c1c\] {
     color: #1d1c1c;
   }
@@ -1304,6 +1335,11 @@
   }
   .transition-opacity {
     transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
@@ -2396,6 +2432,31 @@
   .dark\:bg-\[\#191919\] {
     @media (prefers-color-scheme: dark) {
       background-color: #191919;
+    }
+  }
+  .dark\:bg-\[var\(\)\] {
+    @media (prefers-color-scheme: dark) {
+      background-color: var();
+    }
+  }
+  .dark\:bg-\[var\(--\)\] {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--);
+    }
+  }
+  .dark\:bg-\[var\(--dark\)\] {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--dark);
+    }
+  }
+  .dark\:bg-\[var\(--dark-bg\)\] {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--dark-bg);
+    }
+  }
+  .dark\:bg-\[var\] {
+    @media (prefers-color-scheme: dark) {
+      background-color: var;
     }
   }
   .dark\:text-white {
