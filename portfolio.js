@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeToggleMobile = document.getElementById('theme-toggle-mobile');
   const navLinks = document.querySelectorAll('.nav-link');
   const mobileLinks = document.querySelectorAll('.mobile-link');
+  const footerLinks = document.querySelectorAll('.footer-link');
   
   // Handle scroll effect
   window.addEventListener('scroll', function() {
@@ -98,7 +99,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
-  // Active link highlighting based on scroll
+  
+   // Add click event listener to each footer link for smooth scrolling
+   footerLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Prevent default anchor behavior
+      e.preventDefault();
+      
+      // Get the target section ID from the href attribute
+      const targetId = this.getAttribute('href').substring(1);
+      
+      // Find the target element
+      const targetElement = document.getElementById(targetId);
+      
+      // If target element exists, scroll to it
+      if (targetElement) {
+        // Get the top position of the target element
+        const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY;
+        
+        // Smooth scroll to the target
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Active link highlighting based on scroll (for nav links only)
   window.addEventListener('scroll', function() {
     let current = '';
     
@@ -111,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
     
+    // Update nav links (unchanged from your original code)
     navLinks.forEach(link => {
       link.classList.remove('active', 'text-[#69a7f8]', 'after:scale-x-100');
       if (link.getAttribute('href') === `#${current}`) {
@@ -118,13 +147,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
     
+    // Update mobile links (unchanged from your original code)
     mobileLinks.forEach(link => {
       link.classList.remove('active', 'bg-[#69a7f8]/10', 'pl-6');
       if (link.getAttribute('href') === `#${current}`) {
         link.classList.add('active', 'bg-[#69a7f8]/10', 'pl-6');
       }
     });
+    
+    // No style changes for footer links as requested
   });
+
+  
   
   // Theme toggle functionality with local storage
   let isDarkMode = localStorage.getItem('theme') === 'dark'; // Check saved theme in local storage
