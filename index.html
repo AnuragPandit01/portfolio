@@ -349,95 +349,119 @@
   </style>
 </head>
 
-<body class="w-full min-h-screen font-sans antialiased relative flex flex-col" style="font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); padding-bottom: 6rem;">
+<body class="w-full min-h-screen font-sans antialiased relative flex flex-col"
+  style="font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); padding-bottom: 6rem;">
   <!-- Navbar -->
-<header class="fixed top-0 left-0 right-0 w-full bg-[#1a1b1b]/95 backdrop-blur-sm text-gray-200 flex items-center justify-between px-4 md:px-8 py-4 border-b border-gray-700/50 z-50 transition-all duration-300 shadow-md" id="main-header">
-  <!-- Logo Section -->
-  <div class="flex items-center">
-    <div class="logoText p-1 h-10 flex items-center justify-center tracking-widest text-white font-semibold text-xl md:text-2xl hover:bg-white/10 rounded transition duration-300 ease-in-out" style="font-family: 'Lobster', cursive;">
-      <span class="text-[#69a7f8]">A</span><span class="text-white">NURAG</span>
+  <header
+    class="fixed top-0 left-0 right-0 w-full bg-[#1a1b1b]/95 backdrop-blur-sm text-gray-200 flex items-center justify-between px-4 md:px-8 py-4 border-b border-gray-700/50 z-50 transition-all duration-300 shadow-md"
+    id="main-header">
+    <!-- Logo Section -->
+    <div class="flex items-center">
+      <div
+        class="logoText p-1 h-10 flex items-center justify-center tracking-widest text-white font-semibold text-xl md:text-2xl hover:bg-white/10 rounded transition duration-300 ease-in-out"
+        style="font-family: 'Lobster', cursive;">
+        <span class="text-[#69a7f8]">A</span><span class="text-white">NURAG</span>
+      </div>
     </div>
-  </div>
 
-  <!-- Desktop Navigation -->
-  <nav class="nav-menu hidden md:flex items-center gap-6 text-base font-medium">
-    <a href="#home" class="nav-link active py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Home</a>
-    <a href="#about" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
-    <a href="#skills" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
-    <a href="#projects" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
-    <a href="#contact" class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
-    
-    
-  </nav>
+    <!-- Desktop Navigation -->
+    <nav class="nav-menu hidden md:flex items-center gap-6 text-base font-medium">
+      <a href="#home"
+        class="nav-link active py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Home</a>
+      <a href="#about"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
+      <a href="#skills"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
+      <a href="#projects"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
+      <a href="#contact"
+        class="nav-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
 
-  <!-- Toggle Theme Button (Dark/Light) -->
-  <button id="theme-toggle" class="hidden md:flex w-10 h-10 rounded-full items-center justify-center text-gray-300 hover:bg-gray-700/50 transition-colors duration-300 ml-2">
-    <i class="fa-solid fa-moon"></i>
-  </button>
 
-  <!-- Mobile Menu Button -->
-  <div class="md:hidden flex items-center">
-    <button id="theme-toggle-mobile" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-700/50 transition-colors duration-300 mr-1">
+    </nav>
+
+    <!-- Toggle Theme Button (Dark/Light) -->
+    <button id="theme-toggle"
+      class="hidden md:flex w-10 h-10 rounded-full items-center justify-center text-gray-300 hover:bg-gray-700/50 transition-colors duration-300 ml-2">
       <i class="fa-solid fa-moon"></i>
     </button>
-    <button id="hamburger-menu" class="w-10 h-10 flex flex-col items-center justify-center rounded-md cursor-pointer hover:bg-gray-700/50 transition-colors duration-300 focus:outline-none">
-      <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
-      <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
-      <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300"></span>
-    </button>
-  </div>
-</header>
 
-<!-- Mobile Navigation Menu -->
-<div id="mobile-menu" class="fixed top-16 -right-full w-full h-screen bg-[#1a1b1b]/95 backdrop-blur-sm  md:hidden transition-all duration-500 ease-in-out z-50 flex flex-col pt-6 pb-20 overflow-y-auto">
-  <nav class="flex flex-col px-6 py-4 gap-4">
-    <a href="#home" class="mobile-link active flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
-      <i class="fa-solid fa-house mr-3 text-[#69a7f8]"></i>
-      Home
-    </a>
-    <a href="#about" class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
-      <i class="fa-solid fa-user mr-3 text-[#69a7f8]"></i>
-      About
-    </a>
-    <a href="#skills" class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
-      <i class="fa-solid fa-code mr-3 text-[#69a7f8]"></i>
-      Skills
-    </a>
-    <a href="#projects" class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
-      <i class="fa-solid fa-briefcase mr-3 text-[#69a7f8]"></i>
-      Projects
-    </a>
-    <a href="#contact" class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
-      <i class="fa-solid fa-envelope mr-3 text-[#69a7f8]"></i>
-      Contact
-    </a>
-    
-    <div class="border-t border-gray-700/50 my-2"></div>
-    
-    <a href="path/to/your-resume.pdf" download="Anurag_Resume.pdf" class="mobile-link flex items-center justify-center py-3 px-4 mt-2 rounded-lg bg-gradient-to-r from-[#4a5e77] to-[#69a7f8] text-lg font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#69a7f8]/20">
-      <i class="fa-solid fa-download mr-3"></i>
-      Download Resume
-    </a>
-  </nav>
-  
-  <!-- Social Links Mobile -->
-  <div class="mt-auto px-6 py-4">
-    <p class="text-gray-400 mb-4 text-sm">Connect with me</p>
-    <div class="flex gap-4">
-      <a href="https://www.linkedin.com/in/anurag-pandit-2246472ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
-        <i class="fab fa-linkedin-in"></i>
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden flex items-center">
+      <button id="theme-toggle-mobile"
+        class="w-10 h-10 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-700/50 transition-colors duration-300 mr-1">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button id="hamburger-menu"
+        class="w-10 h-10 flex flex-col items-center justify-center rounded-md cursor-pointer hover:bg-gray-700/50 transition-colors duration-300 focus:outline-none">
+        <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
+        <span class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></span>
+        <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu"
+    class="fixed top-16 -right-full w-full h-screen bg-[#1a1b1b]/95 backdrop-blur-sm  md:hidden transition-all duration-500 ease-in-out z-50 flex flex-col pt-6 pb-20 overflow-y-auto">
+    <nav class="flex flex-col px-6 py-4 gap-4">
+      <a href="#home"
+        class="mobile-link active flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-house mr-3 text-[#69a7f8]"></i>
+        Home
       </a>
-      <a href="https://github.com/AnuragPandit01" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
-        <i class="fab fa-github"></i>
+      <a href="#about"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-user mr-3 text-[#69a7f8]"></i>
+        About
       </a>
-     
-      <a href="mailto:panurag8127@gmail.com" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
-        <i class="fa-solid fa-envelope"></i>
+      <a href="#skills"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-code mr-3 text-[#69a7f8]"></i>
+        Skills
       </a>
+      <a href="#projects"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-briefcase mr-3 text-[#69a7f8]"></i>
+        Projects
+      </a>
+      <a href="#contact"
+        class="mobile-link flex items-center py-3 px-4 rounded-lg hover:bg-[#69a7f8]/10 text-lg font-medium text-white transition-all duration-300 hover:pl-6">
+        <i class="fa-solid fa-envelope mr-3 text-[#69a7f8]"></i>
+        Contact
+      </a>
+
+      <div class="border-t border-gray-700/50 my-2"></div>
+
+      <a href="path/to/your-resume.pdf" download="Anurag_Resume.pdf"
+        class="mobile-link flex items-center justify-center py-3 px-4 mt-2 rounded-lg bg-gradient-to-r from-[#4a5e77] to-[#69a7f8] text-lg font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#69a7f8]/20">
+        <i class="fa-solid fa-download mr-3"></i>
+        Download Resume
+      </a>
+    </nav>
+
+    <!-- Social Links Mobile -->
+    <div class="mt-auto px-6 py-4">
+      <p class="text-gray-400 mb-4 text-sm">Connect with me</p>
+      <div class="flex gap-4">
+        <a href="https://www.linkedin.com/in/anurag-pandit-2246472ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          target="_blank"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/AnuragPandit01" target="_blank"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <a href="mailto:panurag8127@gmail.com" target="_blank"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
     </div>
   </div>
-</div>
-  
+
   <div class="wrapper flex-grow flex flex-col">
 
     <!-- Hero Section -->
@@ -505,7 +529,8 @@
             </div>
           </div>
           <div class="social-links mt-8 flex gap-4 justify-center md:justify-start">
-            <a href="https://www.linkedin.com/in/anurag-pandit-2246472ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"target="_blank"
+            <a href="https://www.linkedin.com/in/anurag-pandit-2246472ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank"
               class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-[#4a5e77] hover:text-white transition-all duration-300 text-[#4a5e77] text-lg">
               <i class="fab fa-linkedin-in"></i>
             </a>
@@ -513,7 +538,7 @@
               class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-[#4a5e77] hover:text-white transition-all duration-300 text-[#4a5e77] text-lg">
               <i class="fab fa-github"></i>
             </a>
-            
+
           </div>
         </div>
       </div>
@@ -849,7 +874,7 @@
         class="contact-container w-full max-w-6xl mx-auto rounded-2xl border-4 relative flex flex-col md:flex-row justify-center items-center gap-6 p-4 md:p-6">
 
         <div class="contact-form w-full md:w-[45%] rounded-2xl flex flex-col justify-center items-center p-4">
-          <form action="https://formspree.io/f/mldjozla" method="post"
+          <form action="https://formspree.io/f/mldjozla" method="post" autocomplete="off" aria-autocomplete="none"
             class="w-full flex flex-col gap-4 items-center justify-center">
             <input type="text" name="user" placeholder="Name"
               class="w-full max-w-md h-12 border-b-2 rounded-md p-2 focus:outline-none focus:border-[#91A762]">
@@ -929,35 +954,45 @@
       </div>
     </section>
     <!-- footer section -->
-    <footer class="w-full  py-12 px-6 flex flex-col items-center "style="background-color: #1a1a1a; color:white;">
+    <footer class="w-full  py-12 px-6 flex flex-col items-center " style="background-color: #1a1a1a; color:white;">
       <div class="max-w-[1200px] w-full flex flex-col md:flex-row justify-between items-center gap-12 border-t-2">
         <!-- Logo Section -->
         <div class="flex items-center">
-          <div class="logoText p-1 h-12 flex items-center justify-center tracking-widest text-white font-semibold text-2xl md:text-3xl hover:bg-white/10 rounded transition duration-300 ease-in-out" style="font-family: 'Lobster', cursive;">
+          <div
+            class="logoText p-1 h-12 flex items-center justify-center tracking-widest text-white font-semibold text-2xl md:text-3xl hover:bg-white/10 rounded transition duration-300 ease-in-out"
+            style="font-family: 'Lobster', cursive;">
             <span class="text-[#69a7f8]">A</span><span class="text-white">NURAG</span>
           </div>
         </div>
 
         <!-- Quick Links -->
         <nav class="flex flex-wrap justify-center gap-8 text-base font-medium">
-          <a href="#home" class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Home</a>
-          <a href="#about" class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
-          <a href="#skills" class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
-          <a href="#projects" class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
-          <a href="#contact" class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
+          <a href="#home"
+            class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Home</a>
+          <a href="#about"
+            class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">About</a>
+          <a href="#skills"
+            class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Skills</a>
+          <a href="#projects"
+            class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Projects</a>
+          <a href="#contact"
+            class="footer-link py-1 hover:text-[#69a7f8] relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#69a7f8] after:bottom-0 after:left-0 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left">Contact</a>
         </nav>
 
         <!-- Connect Me Section -->
         <div class="flex flex-col items-center">
           <p class="text-gray-400 mb-4 text-sm">Connect with me</p>
           <div class="flex gap-6">
-            <a href="https://www.linkedin.com/in/anurag-pandit-2246472ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+            <a href="https://www.linkedin.com/in/anurag-pandit-2246472ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
               <i class="fab fa-linkedin-in text-lg"></i>
             </a>
-            <a href="https://github.com/AnuragPandit01" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+            <a href="https://github.com/AnuragPandit01"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
               <i class="fab fa-github text-lg"></i>
             </a>
-            <a href="https://www.instagram.com/i_m.panditanurag/profilecard/?igsh=MXhqNTcwdzBxeHFnaA==" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
+            <a href="https://www.instagram.com/i_m.panditanurag/profilecard/?igsh=MXhqNTcwdzBxeHFnaA=="
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-[#69a7f8] hover:text-white transition-all duration-300">
               <i class="fab fa-instagram text-lg"></i>
             </a>
           </div>
